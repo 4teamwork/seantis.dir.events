@@ -160,7 +160,7 @@ class IEventsDirectoryItem(IDirectoryItem):
 
     image = NamedImage(
         title=_(u'Image'),
-        required=False
+        required=True
     )
 
     attachment_1 = NamedFile(
@@ -521,7 +521,7 @@ def validate_image(value):
     if not imghdr.what(value.filename, value.data):
         raise Invalid(_(u'Unknown image format'))
 
-    check_filesize(value, 1, _(u'Images'))
+    check_filesize(value, 2, _(u'Images'))
 
 
 # Attachments are limited to certain filetypes
